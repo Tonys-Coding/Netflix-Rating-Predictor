@@ -1,0 +1,345 @@
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+/* --- BACKGROUND ANIMATION --- */
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #181c21;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  z-index: -1;
+}
+
+.pattern-bg {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: repeating-linear-gradient(
+    135deg,
+    #232526 0px,
+    #232526 60px,
+    #23252699 70px,
+    #414345 130px
+  );
+}
+
+.cube-svg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: -30%;
+  top: -20%;
+  background: transparent;
+  opacity: 0.7;
+  z-index: 1;
+  animation: cubeMove 18s linear infinite alternate;
+}
+
+@keyframes cubeMove {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-20%) scale(1.02) rotate(1deg);
+  }
+}
+/* ---------------------------- */
+
+/* Container & Layout */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #e1e4e8;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #881919; /* Netflix Red */
+}
+
+header h1 {
+  color: #881919; /* Netflix Red */
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Form Elements */
+.step-section {
+  display: none;
+}
+.step-section.active {
+  display: block;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+legend {
+  font-weight: bold;
+  color: #881919; /* Netflix Red */
+  padding: 0 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.help-text {
+  font-weight: normal;
+  color: #666;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #881919;
+  box-shadow: 0 0 0 2px rgba(136, 25, 25, 0.25);
+}
+
+/* Radio & Checkbox Groups */
+.radio-group {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.6rem 0;
+}
+
+.radio-group label {
+  display: inline-flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.radio-group input {
+  margin-right: 0.5rem;
+  accent-color: #e50914;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-grid label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkbox-grid input {
+  margin-right: 0.4rem;
+  accent-color: #e50914;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #881919; /* Netflix Red */
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #b20710;
+}
+.btn-primary:disabled {
+  background-color: #f28b91;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #e2e6ea;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #dae0e5;
+}
+
+/* Alerts & Status Messages */
+.status-msg {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: none;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+.status-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Results Section */
+.results-card {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+}
+
+.results-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.results-meta {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.score-comparison {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.score-box h3 {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.score-value {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.score-value.good {
+  color: #28a745;
+}
+.score-value.avg {
+  color: #fd7e14;
+}
+.score-value.poor {
+  color: #dc3545;
+}
+
+.vs-text {
+  font-weight: bold;
+  color: #999;
+}
+
+.analysis-text {
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-left: 4px solid #e50914; /* Netflix Red */
+  text-align: left;
+  font-style: italic;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .score-comparison {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
